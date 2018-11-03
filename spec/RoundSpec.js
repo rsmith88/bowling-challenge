@@ -11,4 +11,23 @@ describe("Round", function() {
     });
   });
 
+  describe("firstRoll", function() {
+    it("if strike, it should add 10 points to roundscore", function() {
+      round1.firstRoll('strike');
+      expect(round1.score()).toEqual(10);
+    });
+
+    it("if not strike, it should add roll to roundscore", function() {
+      round1.firstRoll(8);
+      expect(round1.score()).toEqual(8);
+    });
+  });
+  
+  describe("secondRoll", function() {
+    it("if not strike, it should add roll to roundscore", function() {
+      round1.firstRoll(8);
+      expect(round1.score()).toEqual(8);
+    });
+  });
+
 });
