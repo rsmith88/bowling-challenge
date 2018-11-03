@@ -11,12 +11,12 @@ describe("Game", function() {
     });
   });
 
-  // describe("addRound", function() {
-  //   it("should add the round number and score to scorecard hash", function() {
-  //     game.add(1, 10);
-  //     // expect(game.scorecardHash()).
-  //     expect(game.score()).toEqual(10);
-  //   });
-  // });
+  describe("addRound", function() {
+    it("should add the round number and score to scorecard hash", function() {
+      game.add(1, 10);
+      expect(game._scoreHash).toEqual({1: 10});
+      expect(game.score()).toEqual(10);
+    });
+  });
 
 });
