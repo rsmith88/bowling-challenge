@@ -1,13 +1,13 @@
-function Game() {
+function Total() {
   this._score = 0;
   this._scoreHash = {};
 };
 
-Game.prototype.score = function() {
+Total.prototype.score = function() {
   return this._score;
 };
 
-Game.prototype.add = function(roundNumber, roundScore) {
+Total.prototype.add = function(roundNumber, roundScore) {
   console.log('Round number: ' + roundNumber + '  Round Score: ' + roundScore);
   this._scoreHash[roundNumber] = roundScore;
   this._score = totalScore(this._scoreHash);
