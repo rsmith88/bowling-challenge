@@ -1,7 +1,7 @@
 describe("Total", function() {
 
   beforeEach(function() {
-    // game = new Game();
+    game = new Game();
     round1 = new Round();
     total = new Total();
   });
