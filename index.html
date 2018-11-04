@@ -10,32 +10,43 @@
       <section>
         <p> Enter your scores below </p>
         <p> Round 1:
-        <select id="round1roll1">
+        <select id="roll1">
           <option value="strike">Strike</option>
-          <option value="spare">Spare</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          <option value=6>6</option>
+          <option value=7>7</option>
+          <option value=8>8</option>
+          <option value=9>9</option>
+          <option value=10>10</option>
         </select>
-        </p>
-        <p> </p>
+        <select id="roll2">
+          <option value="spare">Spare</option>
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          <option value=6>6</option>
+          <option value=7>7</option>
+          <option value=8>8</option>
+          <option value=9>9</option>
+          <option value=10>10</option>
+        </select>
       </section>
-        <p> </p>
-        <button id="update">Update Score</button>
+        <button id="add-round">Update Score </button>
+        <p></p>
         Current Score: <span id="current-score">0</span>
     </section>
+        <script src="jquery-3.3.1.js"></script>
         <script src="src/Game.js"></script>
         <script src="src/Round.js"></script>
         <script src="src/Total.js"></script>
-        <script src="jquery-3.3.1.js"></script>
         <script src="src/Interface.js"></script>
   </body>
 </html>

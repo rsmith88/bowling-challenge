@@ -8,7 +8,7 @@ Game.prototype.create = function() {
   }
 }
 
-Game.prototype.update = function() {
+Game.prototype.update = function(total) {
   for (var i = 1; i < 11; i++) {
     if (this.round[i].spare || this.round[i].strike) {
       total.add(this.round[i].roundNumber, 0);
@@ -17,21 +17,22 @@ Game.prototype.update = function() {
       this.round[i].scoreWithBonus = this.round[i].score();
     }
     if (this.round[i-1].spare) {
-      updateSpare(this.round[i], this.round[i-1])
+      updateSpare(this.round[i], this.round[i-1], total)
     }
     if (this.round[i-1].strike) {
-      updateStrike(this.round[i], this.round[i-1])
+      updateStrike(this.round[i], this.round[i-1], total)
     }
   };
+  // console.log(total.score())
 };
 
-function updateSpare(currentRound, previousRound) {
+function updateSpare(currentRound, previousRound, total) {
   var spareScore = (previousRound.score() + currentRound.firstRollPoints)
   total.add(previousRound.roundNumber, spareScore)
   previousRound.scoreWithBonus = spareScore
 };
 
-function updateStrike(currentRound, previousRound) {
+function updateStrike(currentRound, previousRound, total) {
   var strikeScore = (previousRound.score() + currentRound.score())
   total.add(previousRound.roundNumber, strikeScore)
   previousRound.scoreWithBonus = strikeScore
