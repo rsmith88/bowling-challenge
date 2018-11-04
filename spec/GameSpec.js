@@ -42,7 +42,29 @@ describe("Game", function() {
       expect(total.score()).toEqual(20);
     });
 
-  });
+    it("should update score if two strikes are scored in a row", function() {
+      game.round[1].firstRoll('strike');
+      game.round[2].firstRoll('strike');
+      game.update();
+      expect(total.score()).toEqual(30);
+      game.round[3].firstRoll(4);
+      game.round[3].secondRoll(1);
+      game.update();
+      expect(total.score()).toEqual(40);
+    });
 
+    it("should update score if two spares are scored in a row", function() {
+      game.round[1].firstRoll(5);
+      game.round[1].secondRoll('spare');
+      game.round[2].firstRoll(5);
+      game.round[2].secondRoll('spare');
+      game.update();
+      expect(total.score()).toEqual(25);
+      game.round[3].firstRoll(4);
+      game.round[3].secondRoll(1);
+      game.update();
+      expect(total.score()).toEqual(34);
+    });
+  });
 
 });

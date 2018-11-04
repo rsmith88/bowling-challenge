@@ -13,7 +13,7 @@ describe("Round", function() {
   });
 
   describe("firstRoll", function() {
-    it("if strike, it should add 10 points to roundScore & record strike", function() {
+    it("if strike, it should add 10 rollPoints to roundScore & record strike", function() {
       game.round[0].firstRoll('strike');
       expect(game.round[0].score()).toEqual(10);
       expect(game.round[0].strike).toEqual(true)
@@ -40,7 +40,7 @@ describe("Round", function() {
       expect(game.round[0].spare).toEqual(false);
     });
 
-    it("if more than 10 points is entered, it should record spare & set roundScore to 10", function() {
+    it("if more than 10 Rollpoints are entered in a round, it should record spare & set roundScore to 10", function() {
       game.round[0].firstRoll(3);
       game.round[0].secondRoll(8);
       expect(game.round[0].score()).toEqual(10);

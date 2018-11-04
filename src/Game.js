@@ -25,6 +25,7 @@ Game.prototype.update = function() {
       var strikeScore = (this.round[(i-1)].score() + this.round[i].score())
       total.add(this.round[i-1].roundNumber, strikeScore)
       this.round[i-1].scoreWithBonus = strikeScore
-    };
-  };
+    }
+    console.log('Round number: ' + this.round[i].roundNumber + '  Round Score: ' + this.round[i].scoreWithBonus);
+  }
 };
