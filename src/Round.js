@@ -1,37 +1,37 @@
 function Round(roundNumber) {
   this.roundNumber = roundNumber
-  this._score = 0;
-  this.complete = false;
+  this.firstRollPoints = 0;
+  this.secondRollPoints = 0;
   this.strike = false;
   this.spare = false;
+  this.scoreWithBonus = 'tbd'
 };
 
 Round.prototype.score = function() {
-  return this._score;
+  var score = (this.firstRollPoints + this.secondRollPoints);
+  return score;
 };
 
 Round.prototype.firstRoll = function(rollPoints) {
   if (rollPoints === 'strike') {
-    this._score = 10;
+    this.firstRollPoints = 10;
+    this.secondRollPoints = 0;
     this.strike = true;
   } else {
-    this._score = rollPoints;
+    this.firstRollPoints = rollPoints;
     this.strike = false;
   }
 }
 
 Round.prototype.secondRoll = function(rollPoints) {
   if (rollPoints === 'spare') {
-    this._score = 10;
+    this.secondRollPoints = (10 - this.firstRollPoints);
     this.spare = true;
-    this.complete = false;
-  } else if ((rollPoints + this._score) >= 10) {
-    this._score = 10;
+  } else if ((rollPoints + this.firstRollPoints) >= 10) {
+    this.secondRollPoints = (10 - this.firstRollPoints);
     this.spare = true;
-    this.complete = false;
   } else {
-    this._score += rollPoints;
+    this.secondRollPoints = rollPoints;
     this.spare = false;
-    this.complete = true;
   }
 }

@@ -8,7 +8,6 @@ Total.prototype.score = function() {
 };
 
 Total.prototype.add = function(roundNumber, roundScore) {
-  console.log('Round number: ' + roundNumber + '  Round Score: ' + roundScore);
   this._scoreHash[roundNumber] = roundScore;
   this._score = totalScore(this._scoreHash);
 };
