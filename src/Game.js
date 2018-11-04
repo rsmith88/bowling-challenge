@@ -22,6 +22,7 @@ Game.prototype.update = function() {
     if (this.round[i-1].strike) {
       updateStrike(this.round[i], this.round[i-1])
     }
+  };
 };
 
 function updateSpare(currentRound, previousRound) {
