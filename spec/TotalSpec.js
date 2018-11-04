@@ -2,7 +2,7 @@ describe("Total", function() {
 
   beforeEach(function() {
     game = new Game();
-    round1 = new Round();
+    game.create();
     total = new Total();
   });
 
@@ -20,7 +20,7 @@ describe("Total", function() {
     });
 
     it("should accept round.score as input for round score", function() {
-      total.add(1, round1.score());
+      total.add(1, game.round[0].score());
       expect(total._scoreHash).toEqual({1: 0});
       expect(total.score()).toEqual(0);
     });

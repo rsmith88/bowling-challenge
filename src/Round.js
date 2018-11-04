@@ -1,4 +1,5 @@
-function Round() {
+function Round(roundNumber) {
+  this.roundNumber = roundNumber
   this._score = 0;
   this.complete = false;
   this.strike = false;
