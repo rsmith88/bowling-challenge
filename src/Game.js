@@ -17,15 +17,36 @@ Game.prototype.update = function() {
       this.round[i].scoreWithBonus = this.round[i].score();
     }
     if (this.round[i-1].spare) {
-      var spareScore = (this.round[i-1].score() + this.round[i].firstRollPoints)
-      total.add(this.round[i-1].roundNumber, spareScore)
-      this.round[i-1].scoreWithBonus = spareScore
+      updateSpare(this.round[i], this.round[i-1])
     }
     if (this.round[i-1].strike) {
-      var strikeScore = (this.round[(i-1)].score() + this.round[i].score())
-      total.add(this.round[i-1].roundNumber, strikeScore)
-      this.round[i-1].scoreWithBonus = strikeScore
+      updateStrike(this.round[i], this.round[i-1])
     }
-    console.log('Round number: ' + this.round[i].roundNumber + '  Round Score: ' + this.round[i].scoreWithBonus);
-  }
 };
+
+function updateSpare(currentRound, previousRound) {
+  var spareScore = (previousRound.score() + currentRound.firstRollPoints)
+  total.add(previousRound.roundNumber, spareScore)
+  previousRound.scoreWithBonus = spareScore
+};
+
+function updateStrike(currentRound, previousRound) {
+  var strikeScore = (previousRound.score() + currentRound.score())
+  total.add(previousRound.roundNumber, strikeScore)
+  previousRound.scoreWithBonus = strikeScore
+};
+
+// function bonusRound(round) {
+//   if (round.roundNumber = 11) {
+//     if (this.round[i-1].spare) {
+//       var spareScore = (this.round[i-1].score() + this.round[i].firstRollPoints)
+//       total.add(this.round[i-1].roundNumber, spareScore)
+//       this.round[i-1].scoreWithBonus = spareScore
+//     }
+//     if (this.round[i-1].strike) {
+//       var strikeScore = (this.round[(i-1)].score() + this.round[i].score())
+//       total.add(this.round[i-1].roundNumber, strikeScore)
+//       this.round[i-1].scoreWithBonus = strikeScore
+//     }
+//   }
+// }
