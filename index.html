@@ -5,9 +5,58 @@
     <title>Welcome to bowlingscore.com!</title>
   </head>
   <body>
+
     <section>
-    <h2 class="score"> Welcome to BowlingScore.com </h2>
-    <br>
+      <h2 class="score"> BowlingScore.com </h2>
+      <br>
+      <!-- <p> Enter your scores below </p> -->
+    </section>
+    <section>
+      <p> Round:
+      <select id="round">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+      </select>
+      Roll 1:
+      <select id="roll1">
+        <option value=0>0</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value="strike">Strike</option>
+      </select>
+      Roll 2:
+      <select id="roll2">
+        <option value=0>0</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value="spare">Spare</option>
+      </select>
+      <button id="add-round">Update Score </button>
+      <br>
+    </section>
+    <section>
       <table class="table">
         <thead>
           <tr>
@@ -36,56 +85,61 @@
             <td><span id="round3roll2">0</span></td>
             <td><span id="round3score">0</span></td>
           </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td><span id="round4roll1">0</span></td>
+            <td><span id="round4roll2">0</span></td>
+            <td><span id="round4score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td><span id="round5roll1">0</span></td>
+            <td><span id="round5roll2">0</span></td>
+            <td><span id="round5score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td><span id="round6roll1">0</span></td>
+            <td><span id="round6roll2">0</span></td>
+            <td><span id="round6score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td><span id="round7roll1">0</span></td>
+            <td><span id="round7roll2">0</span></td>
+            <td><span id="round7score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td><span id="round8roll1">0</span></td>
+            <td><span id="round8roll2">0</span></td>
+            <td><span id="round8score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td><span id="round9roll1">0</span></td>
+            <td><span id="round9roll2">0</span></td>
+            <td><span id="round9score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td><span id="round10roll1">0</span></td>
+            <td><span id="round10roll2">0</span></td>
+            <td><span id="round10score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Total</th>
+            <td><span id="roll1total">-</span></td>
+            <td><span id="roll2total">-</span></td>
+            <td><span id="current-score">0</span></td>
+          </tr>
         </tbody>
       </table>
-      <section>
-        <p> Enter your scores below </p>
-        <p> Round:
-        <select id="round">
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
-          <option value=6>6</option>
-          <option value=7>7</option>
-          <option value=8>8</option>
-          <option value=9>9</option>
-          <option value=10>10</option>
-        </select>
-        <select id="roll1">
-          <option value="strike">Strike</option>
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
-          <option value=6>6</option>
-          <option value=7>7</option>
-          <option value=8>8</option>
-          <option value=9>9</option>
-          <option value=10>10</option>
-        </select>
-        <select id="roll2">
-          <option value="spare">Spare</option>
-          <option value=0>0</option>
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
-          <option value=6>6</option>
-          <option value=7>7</option>
-          <option value=8>8</option>
-          <option value=9>9</option>
-          <option value=10>10</option>
-        </select>
       </section>
-        <button id="add-round">Update Score </button>
-        <p></p>
-        Current Score: <span id="current-score">0</span>
-    </section>
+      <section>
+        <!-- Total Score: <span id="current-score">0</span> -->
+      </section>
+
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

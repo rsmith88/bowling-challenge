@@ -3,13 +3,13 @@ function Game() {
 };
 
 Game.prototype.create = function() {
-  for (var i = 0; i < 11; ++i) {
+  for (var i = 0; i < 12; ++i) {
     this.round[i] = new Round(i)
   }
 }
 
 Game.prototype.update = function(total) {
-  for (var i = 1; i < 11; i++) {
+  for (var i = 1; i < 12; i++) {
     if (this.round[i].spare || this.round[i].strike) {
       total.add(this.round[i].roundNumber, 0);
     } else {
