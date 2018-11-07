@@ -18,9 +18,16 @@ $(document).ready(function() {
     game.round[parseInt($('#round').val())].secondRoll(roll2Points);
     game.update(total);
     console.log(total.score());
-    outputscore
     $('#current-score').text(total.score().toString());
     $('#round1roll1').text(game.round[1].firstRollPoints.toString());
+    $('#round1roll2').text(game.round[1].secondRollPoints.toString());
+    $('#round1score').text(game.round[1].scoreWithBonus.toString());
+    $('#round2roll1').text(game.round[2].firstRollPoints.toString());
+    $('#round2roll2').text(game.round[2].secondRollPoints.toString());
+    $('#round2score').text(game.round[2].scoreWithBonus.toString());
+    $('#round3roll1').text(game.round[3].firstRollPoints.toString());
+    $('#round3roll2').text(game.round[3].secondRollPoints.toString());
+    $('#round3score').text(game.round[3].scoreWithBonus.toString());
   });
 
 
