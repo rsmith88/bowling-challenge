@@ -18,7 +18,9 @@ $(document).ready(function() {
     game.round[parseInt($('#round').val())].secondRoll(roll2Points);
     game.update(total);
     console.log(total.score());
+    outputscore
     $('#current-score').text(total.score().toString());
+    $('#round1roll1').text(game.round[1].firstRollPoints.toString());
   });
 
 
