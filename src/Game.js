@@ -26,12 +26,7 @@ Game.prototype.update = function(total) {
       updateDoubleStrike(this.round[i], this.round[i-1], this.round[i-2], total)
     }
     if (i > 10 ) {
-      total.add(this.round[i].roundNumber, 0);
-      this.round[i].scoreWithBonus = 0
-    }
-    if (i === 12 ) {
-      total.add(this.round[i-1].roundNumber, 0);
-      this.round[i-1].scoreWithBonus = 0
+      updateBonus(this.round[i], this.round[i-1], total)
     }
   };
 };
@@ -56,13 +51,11 @@ function updateDoubleStrike(currentRound, previousRound, previousRound2, total) 
   previousRound2.scoreWithBonus = strikeScore
 };
 
-function bonus(currentRound, previousRound, total) {
-  if (i > 10 ) {
-    total.add(this.round[i].roundNumber, 0);
-    this.round[i].scoreWithBonus = 0
-  }
-  if (i === 12 ) {
-    total.add(this.round[i-1].roundNumber, 0);
-    this.round[i-1].scoreWithBonus = 0
+function updateBonus(currentRound, previousRound, total) {
+  total.add(currentRound.roundNumber, 0);
+  currentRound.scoreWithBonus = 0
+  if (currentRound.roundNumber === 12 ) {
+    total.add(previousRound.roundNumber, 0);
+    previousRound.scoreWithBonus = 0
   }
 };
