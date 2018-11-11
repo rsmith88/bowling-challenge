@@ -53,7 +53,7 @@ describe("Game", function() {
       game.round[3].firstRoll(4);
       game.round[3].secondRoll(1);
       game.update(total);
-      expect(total.score()).toEqual(40);
+      expect(total.score()).toEqual(44);
     });
 
     it("should update score if two spares are scored in a row", function() {

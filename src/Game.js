@@ -36,6 +36,8 @@ Game.prototype.update = function(total) {
   };
 };
 
+
+
 function updateSpare(currentRound, previousRound, total) {
   var spareScore = (previousRound.score() + currentRound.firstRollPoints)
   total.add(previousRound.roundNumber, spareScore)
@@ -49,7 +51,18 @@ function updateStrike(currentRound, previousRound, total) {
 };
 
 function updateDoubleStrike(currentRound, previousRound, previousRound2, total) {
-  var strikeScore = (previousRound.score() + currentRound.score() + previousRound2.score())
+  var strikeScore = (previousRound.score() + previousRound2.score() + currentRound.firstRollPoints)
   total.add(previousRound2.roundNumber, strikeScore)
   previousRound2.scoreWithBonus = strikeScore
+};
+
+function bonus(currentRound, previousRound, total) {
+  if (i > 10 ) {
+    total.add(this.round[i].roundNumber, 0);
+    this.round[i].scoreWithBonus = 0
+  }
+  if (i === 12 ) {
+    total.add(this.round[i-1].roundNumber, 0);
+    this.round[i-1].scoreWithBonus = 0
+  }
 };
