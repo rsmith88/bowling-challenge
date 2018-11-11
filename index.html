@@ -24,6 +24,8 @@
         <option value=8>8</option>
         <option value=9>9</option>
         <option value=10>10</option>
+        <option value=11>Bonus</option>
+        <option value=12>Double Bonus</option>
       </select>
       Roll 1:
       <select id="roll1">
@@ -56,6 +58,7 @@
       <button id="add-round">Update Score </button>
       <br>
     </section>
+
     <section>
       <table class="table">
         <thead>
@@ -69,6 +72,7 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
+            <!-- <td><h6> $('game.round[1].firstRollPoints') <h6></td> -->
             <td><span id="round1roll1">0</span></td>
             <td><span id="round1roll2">0</span></td>
             <td><span id="round1score">0</span></td>
@@ -126,6 +130,18 @@
             <td><span id="round10roll1">0</span></td>
             <td><span id="round10roll2">0</span></td>
             <td><span id="round10score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Bonus</th>
+            <td><span id="round11roll1">0</span></td>
+            <td><span id="round11roll2">0</span></td>
+            <td><span id="round11score">0</span></td>
+          </tr>
+          <tr>
+            <th scope="row">DB Bonus</th>
+            <td><span id="round12roll1">0</span></td>
+            <td><span id="round12roll2">0</span></td>
+            <td><span id="round12score">0</span></td>
           </tr>
           <tr>
             <th scope="row">Total</th>

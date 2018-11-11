@@ -3,13 +3,13 @@ function Game() {
 };
 
 Game.prototype.create = function() {
-  for (var i = 0; i < 12; ++i) {
+  for (var i = 0; i < 13; ++i) {
     this.round[i] = new Round(i)
   }
 }
 
 Game.prototype.update = function(total) {
-  for (var i = 1; i < 12; i++) {
+  for (var i = 1; i < 13; i++) {
     if (this.round[i].spare || this.round[i].strike) {
       total.add(this.round[i].roundNumber, 0);
     } else {
@@ -19,11 +19,21 @@ Game.prototype.update = function(total) {
     if (this.round[i-1].spare) {
       updateSpare(this.round[i], this.round[i-1], total)
     }
-    if (this.round[i-1].strike) {
+    if (this.round[i-1].strike && !this.round[i-2].strike) {
       updateStrike(this.round[i], this.round[i-1], total)
     }
+    if (i > 2 && this.round[i-2].strike && this.round[i-2].strike) {
+      updateDoubleStrike(this.round[i], this.round[i-1], this.round[i-2], total)
+    }
+    if (i > 10 ) {
+      total.add(this.round[i].roundNumber, 0);
+      this.round[i].scoreWithBonus = 0
+    }
+    if (i === 12 ) {
+      total.add(this.round[i-1].roundNumber, 0);
+      this.round[i-1].scoreWithBonus = 0
+    }
   };
-  // console.log(total.score())
 };
 
 function updateSpare(currentRound, previousRound, total) {
@@ -38,17 +48,8 @@ function updateStrike(currentRound, previousRound, total) {
   previousRound.scoreWithBonus = strikeScore
 };
 
-// function bonusRound(round) {
-//   if (round.roundNumber = 11) {
-//     if (this.round[i-1].spare) {
-//       var spareScore = (this.round[i-1].score() + this.round[i].firstRollPoints)
-//       total.add(this.round[i-1].roundNumber, spareScore)
-//       this.round[i-1].scoreWithBonus = spareScore
-//     }
-//     if (this.round[i-1].strike) {
-//       var strikeScore = (this.round[(i-1)].score() + this.round[i].score())
-//       total.add(this.round[i-1].roundNumber, strikeScore)
-//       this.round[i-1].scoreWithBonus = strikeScore
-//     }
-//   }
-// }
+function updateDoubleStrike(currentRound, previousRound, previousRound2, total) {
+  var strikeScore = (previousRound.score() + currentRound.score() + previousRound2.score())
+  total.add(previousRound2.roundNumber, strikeScore)
+  previousRound2.scoreWithBonus = strikeScore
+};

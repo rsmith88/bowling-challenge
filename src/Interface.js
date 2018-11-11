@@ -49,7 +49,11 @@ $(document).ready(function() {
     $('#round10roll1').text(game.round[10].firstRollPoints.toString());
     $('#round10roll2').text(game.round[10].secondRollPoints.toString());
     $('#round10score').text(game.round[10].scoreWithBonus.toString());
+    $('#round11roll1').text(game.round[11].firstRollPoints.toString());
+    $('#round11roll2').text(game.round[11].secondRollPoints.toString());
+    $('#round11score').text(game.round[11].scoreWithBonus.toString());
+    $('#round12roll1').text(game.round[12].firstRollPoints.toString());
+    $('#round12roll2').text(game.round[12].secondRollPoints.toString());
+    $('#round12score').text(game.round[12].scoreWithBonus.toString());
   });
-
-
 });
