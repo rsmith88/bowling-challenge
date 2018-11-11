@@ -31,8 +31,6 @@ Game.prototype.update = function(total) {
   };
 };
 
-
-
 function updateSpare(currentRound, previousRound, total) {
   var spareScore = (previousRound.score() + currentRound.firstRollPoints)
   total.add(previousRound.roundNumber, spareScore)
