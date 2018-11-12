@@ -13,8 +13,7 @@ Game.prototype.update = function(total) {
     if (this.round[i].spare || this.round[i].strike) {
       total.add(this.round[i].roundNumber, 0);
     } else {
-      total.add(this.round[i].roundNumber, this.round[i].score());
-      this.round[i].scoreWithBonus = this.round[i].score();
+      updateRegular(this.round[i], total)
     }
     if (this.round[i-1].spare) {
       updateSpare(this.round[i], this.round[i-1], total)
@@ -29,6 +28,11 @@ Game.prototype.update = function(total) {
       updateBonus(this.round[i], this.round[i-1], total)
     }
   };
+};
+
+function updateRegular(currentRound, total) {
+  total.add(currentRound.roundNumber, currentRound.score());
+  currentRound.scoreWithBonus = currentRound.score();
 };
 
 function updateSpare(currentRound, previousRound, total) {
